@@ -46,6 +46,7 @@ import { CartProvider } from './lib/CartContext';
 import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { CheckoutProvider } from './lib/CheckoutContext'; 
+import Toast from 'react-native-toast-message';
 export default function RootLayout() {
   // Wrap the entire app in your providers
   return (
@@ -53,6 +54,7 @@ export default function RootLayout() {
       <CartProvider>
         <CheckoutProvider>
         <MainLayout />
+        <Toast />
         </CheckoutProvider>
       </CartProvider>
     </AuthProvider>

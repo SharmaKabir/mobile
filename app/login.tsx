@@ -275,8 +275,17 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 import { Link } from 'expo-router';
 import { useAuth } from './lib/AuthContext';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useEffect } from 'react'; 
 export default function LoginScreen() {
+  useEffect(() => {
+  const clearStorage = async () => {
+    console.log("Clearing all storage...");
+    await AsyncStorage.clear();
+    console.log("Storage cleared!");
+  };
+  clearStorage();
+}, []);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
