@@ -69,6 +69,9 @@ export default function AdminScreen() {
         <Button title="Manage Products" onPress={() => router.push('/admin/manage-products')} />
       </View>
       <View style={styles.buttonContainer}>
+        <Button title="Manage Categories" onPress={() => router.push('/admin/manage-categories')} />
+      </View>
+      <View style={styles.buttonContainer}>
         <Button title="View All Orders" onPress={() => router.push('/admin/orders')} />
       </View>
       <View style={styles.buttonContainer}>

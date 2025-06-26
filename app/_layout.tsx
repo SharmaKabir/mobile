@@ -47,6 +47,7 @@ import { useEffect } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import { CheckoutProvider } from './lib/CheckoutContext'; 
 import Toast from 'react-native-toast-message';
+
 export default function RootLayout() {
   // Wrap the entire app in your providers
   return (
@@ -75,10 +76,10 @@ function MainLayout() {
     if (isAuthenticated && inAuthPages) {
       // If the user is signed in, redirect them away from login/signup to the main app.
       router.replace('/(tabs)');
-    } else if (!isAuthenticated && !inAuthPages) {
-      // If the user is not signed in and not on an auth page,
-      // redirect them to the login page.
-      router.replace('/login');
+    // } else if (!isAuthenticated && !inAuthPages) {
+    //   // If the user is not signed in and not on an auth page,
+    //   // redirect them to the login page.
+    //   router.replace('/login');
     }
   }, [isAuthenticated, isLoading, segments]);
 
@@ -101,6 +102,10 @@ function MainLayout() {
           <Stack.Screen name="categories/[categoryId]" options={{ headerShown: true, title: 'Category' }}/>
           <Stack.Screen name="cart" options={{ presentation: 'modal', headerShown: true, title: 'Your Cart' }} />
           <Stack.Screen name="checkout" options={{ headerShown: false, presentation: 'modal' }} />
+        <Stack.Screen name="admin/manage-products" options={{ headerShown: true, title: 'Manage Products' }} />
+          <Stack.Screen name="admin/product-form" options={{ headerShown: true, title: 'Add/Edit Product' }} />
+          <Stack.Screen name="admin/manage-categories" options={{ headerShown: true, title: 'Manage Categories' }} />
+          <Stack.Screen name="admin/category-form" options={{ headerShown: true, title: 'Add/Edit Category' }} />
       </Stack>
   );
 }
