@@ -31,6 +31,7 @@ export interface Product {
     imageUrl: string;
     // This is the crucial change: A Product contains a full Category object.
     category: Category; 
+    stockQuantity: number;
 }
 
 export interface CartItem {
