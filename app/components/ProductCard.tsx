@@ -7,7 +7,7 @@ interface ProductCardProps {
   product: Product;
   style?: StyleProp<ViewStyle>;
 }
-
+const IMAGE_BASE_URL = 'http://192.168.1.6:8080/images';
 const ProductCard: React.FC<ProductCardProps> = ({ product, style }) => {
   // 1. Get the router instance
   const router = useRouter();
@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, style }) => {
   //    This completely avoids the unstable Link/asChild interaction.
   return (
     <Pressable onPress={handlePress} style={({ pressed }) => [styles.card, style, pressed && styles.pressed]}>
-      <Image source={{ uri: product.imageUrl }} style={styles.image} />
+      <Image source={{ uri: `${IMAGE_BASE_URL}/${product.imageUrl}` }}  style={styles.image} />
       <View style={styles.infoContainer}>
         {product.brand && <Text style={styles.brandText}>{product.brand}</Text>}
         <Text style={styles.productName} numberOfLines={2}>{product.name}</Text>
