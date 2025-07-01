@@ -23,7 +23,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, style }) => {
     <Pressable onPress={handlePress} style={({ pressed }) => [styles.card, style, pressed && styles.pressed]}>
       <Image source={{ uri: product.imageUrl }} style={styles.image} />
       <View style={styles.infoContainer}>
-        <Text style={styles.productName} numberOfLines={1}>{product.name}</Text>
+        {product.brand && <Text style={styles.brandText}>{product.brand}</Text>}
+        <Text style={styles.productName} numberOfLines={2}>{product.name}</Text>
         <Text style={styles.productPrice}>${product.price.toFixed(2)}</Text>
       </View>
     </Pressable>
@@ -50,6 +51,11 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     padding: 10,
+  },
+  brandText: {
+    fontSize: 12,
+    color: '#888',
+    marginBottom: 2,
   },
   productName: {
     fontSize: 15,

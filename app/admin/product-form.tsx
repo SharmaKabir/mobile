@@ -255,6 +255,7 @@ export default function ProductFormScreen() {
   const isEditing = !!id;
 
   const [name, setName] = useState('');
+  const [brand, setBrand] = useState(''); 
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [imageUrl, setImageUrl] = useState('');
@@ -275,6 +276,7 @@ export default function ProductFormScreen() {
           const productResponse = await apiClient.get<Product>(`/products/${id}`);
           const product = productResponse.data;
           setName(product.name);
+          setBrand(product.brand || '');
           setDescription(product.description);
           setPrice(product.price.toString());
           setImageUrl(product.imageUrl);
@@ -302,6 +304,7 @@ export default function ProductFormScreen() {
 
     const productData = {
       name,
+      brand,
       description,
       price: parseFloat(price),
       imageUrl,
@@ -334,7 +337,8 @@ export default function ProductFormScreen() {
     <ScrollView style={styles.container}>
       <Text style={styles.label}>Product Name</Text>
       <TextInput style={styles.input} value={name} onChangeText={setName} placeholder="Enter product name" />
-
+      <Text style={styles.label}>Brand</Text>
+      <TextInput style={styles.input} value={brand} onChangeText={setBrand} placeholder="Enter brand name" />
       <Text style={styles.label}>Description</Text>
       <TextInput style={styles.input} value={description} onChangeText={setDescription} placeholder="Enter description" multiline />
 

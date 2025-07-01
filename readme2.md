@@ -1,6 +1,4 @@
-# Low-Level Design (LLD) - E-Commerce Platform
-
-This document provides a detailed breakdown of the internal architecture and implementation of the mobile client and backend API, reflecting the current project structure.
+# Low-Level Design SHOP APP
 
 ## 1. Backend Design (`backend/`)
 
