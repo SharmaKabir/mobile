@@ -27,7 +27,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Add console log to verify the API URL when the app starts
-const API_URL = 'http://192.168.1.6:8080/api';
+const API_URL = 'http://192.168.1.100:8080/api';
 console.log('API URL configured as:', API_URL);
 
 const apiClient = axios.create({
