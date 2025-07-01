@@ -861,7 +861,11 @@ export default function ShopScreen() {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* --- New Arrivals Section --- */}
-      <View style={styles.section}>
+      {/* <View style={styles.section}>
+        <View style={styles.headerBar}>
+          <Text style={styles.headerBarText}>NEW ARRIVALS</Text>
+        </View> */}
+        <View style={styles.newArrivalsSection}>
         <View style={styles.headerBar}>
           <Text style={styles.headerBarText}>NEW ARRIVALS</Text>
         </View>
@@ -876,7 +880,7 @@ export default function ShopScreen() {
       </View>
 
       {/* --- Consolidated Categories Section --- */}
-      <View style={styles.section}>
+      <View style={styles.newArrivalsSection}>
         <View style={styles.headerBar}>
           <Text style={styles.headerBarText}>CATEGORIES</Text>
         </View>
@@ -908,7 +912,7 @@ export default function ShopScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f0f0f0',
   },
   centered: {
     flex: 1,
@@ -920,24 +924,53 @@ const styles = StyleSheet.create({
     marginTop: 50,
     color: 'red',
   },
+  // section: {
+  //   backgroundColor: 'white',
+  //   paddingBottom: 16,
+  //   marginBottom: 12,
+  // },
+  // headerBar: {
+  //   backgroundColor: '#808080', // Changed to grey
+  //   paddingVertical: 12,
+  //   marginTop: 16,
+  //   marginBottom: 8,
+  //   marginHorizontal: 16,
+  //   borderRadius: 8,
+  //   alignItems: 'center',
+  //   justifyContent: 'center',
+  // },
+  // headerBarText: {
+  //   color: 'white',
+  //   fontSize: 20,
+  //   fontWeight: 'bold',
+  // },
   section: {
     backgroundColor: 'white',
     paddingBottom: 16,
     marginBottom: 12,
   },
+  newArrivalsSection: {
+    backgroundColor: '#f0f0f0', // Light grey background
+    paddingBottom: 16,
+    marginBottom: 12,
+  },
   headerBar: {
-    backgroundColor: '#808080', // Changed to grey
+    backgroundColor: 'white',
+    // No horizontal margin, so it spans the full width
     paddingVertical: 12,
     marginTop: 16,
     marginBottom: 8,
-    marginHorizontal: 16,
-    borderRadius: 8,
+    // Keep text centered
     alignItems: 'center',
     justifyContent: 'center',
+    // Remove shadow and add borders to create a section divider effect
+    borderTopWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: '#e0e0e0',
   },
   headerBarText: {
-    color: 'white',
-    fontSize: 20,
+    color: '#333',
+    fontSize: 20, // Adjusted font size for the new container
     fontWeight: 'bold',
   },
   subCategoryContainer: {
